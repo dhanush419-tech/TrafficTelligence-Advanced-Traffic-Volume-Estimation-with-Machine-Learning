@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Traffic Volume Estimation</title>
+    <style>
+        body {
+            background-image: url("https://stat.overdrive.in/wp-content/uploads/2021/10/2021-jaguar-xf-facelift-india-01.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: black;
+        }
+
+        .login {
+            background-color: rgba(255, 255, 255, 0.85);
+            margin: auto;
+            width: 50%;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login">
+        <h1>Traffic Volume Estimation</h1>
+
+        <form action="{{ url_for('result') }}" method="post">
+            <h2>Enter the details:</h2>
+
+            <label>Holiday:</label>
+            <select name="holiday">
+                <option value="None">None</option>
+                <option value="Columbus Day">Columbus Day</option>
+                <option value="Veterans Day">Veterans Day</option>
+                <option value="Thanksgiving Day">Thanksgiving Day</option>
+                <option value="Christmas Day">Christmas Day</option>
+                <option value="New Years Day">New Years Day</option>
+                <option value="Washingtons Birthday">Washingtons Birthday</option>
+                <option value="Memorial Day">Memorial Day</option>
+                <option value="Independence Day">Independence Day</option>
+                <option value="State Fair">State Fair</option>
+                <option value="Labor Day">Labor Day</option>
+                <option value="Martin Luther King Jr Day">Martin Luther King Jr Day</option>
+            </select>
+
+            <label>Temperature:</label>
+            <input type="number" name="temp" required>
+
+            <label>Rain:</label>
+            <input type="number" name="rain" min="0" max="1" required>
+
+            <label>Snow:</label>
+            <input type="number" name="snow" min="0" max="1" required>
+
+            <label>Weather:</label>
+            <select name="weather">
+                <option value="Clouds">Clouds</option>
+                <option value="Clear">Clear</option>
+                <option value="Rain">Rain</option>
+                <option value="Drizzle">Drizzle</option>
+                <option value="Mist">Mist</option>
+                <option value="Haze">Haze</option>
+                <option value="Fog">Fog</option>
+                <option value="Thunderstorm">Thunderstorm</option>
+                <option value="Snow">Snow</option>
+                <option value="Squall">Squall</option>
+                <option value="Smoke">Smoke</option>
+            </select>
+
+            <label>Year:</label>
+            <input type="number" name="year" min="2012" max="2022" required>
+
+            <label>Month:</label>
+            <input type="number" name="month" min="1" max="12" required>
+
+            <label>Day:</label>
+            <input type="number" name="day" min="1" max="31" required>
+
+            <label>Hours:</label>
+            <input type="number" name="hours" min="0" max="24" required>
+
+            <label>Minutes:</label>
+            <input type="number" name="minutes" min="0" max="60" required>
+
+            <label>Seconds:</label>
+            <input type="number" name="seconds" min="0" max="60" required>
+
+            <br><br>
+            <center>
+                <button type="submit">Predict</button>
+            </center>
+        </form>
+    </div>
+</body>
+</html>
